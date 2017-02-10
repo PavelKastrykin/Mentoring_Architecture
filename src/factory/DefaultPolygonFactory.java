@@ -1,8 +1,9 @@
 package factory;
 
+import figures.Circle;
 import figures.Hexagon;
 import figures.Pentagon;
-import figures.RegularPolygon;
+import figures.RegularFigure;
 import figures.Square;
 import figures.Triangle;
 
@@ -11,9 +12,11 @@ import java.math.BigDecimal;
 public class DefaultPolygonFactory implements PolygonFactory {
 
 	@Override
-	public RegularPolygon getRegularPolygon(int sideQuantity, BigDecimal sideLength)
+	public RegularFigure getRegularPolygon(int sideQuantity, BigDecimal sideLength)
 	{
 		switch (sideQuantity) {
+			case 0:
+				return new Circle(sideLength);
 			case 3:
 				return new Triangle(sideLength);
 			case 4:

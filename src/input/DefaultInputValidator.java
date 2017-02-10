@@ -20,7 +20,7 @@ public class DefaultInputValidator implements InputValidator {
 			return false;
 		}
 
-		return quantity > 2 && quantity < 7;
+		return (quantity > 2 && quantity < 7) || quantity == 0;
 	}
 
 	protected boolean validateLength(String sideLength) {

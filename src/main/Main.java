@@ -2,7 +2,7 @@ package main;
 
 import factory.DefaultPolygonFactory;
 import factory.PolygonFactory;
-import figures.RegularPolygon;
+import figures.RegularFigure;
 import input.DefaultInputValidator;
 import input.InputValidator;
 
@@ -15,7 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		BufferedReader br = null;
+		BufferedReader br;
 		InputValidator validator = new DefaultInputValidator();
 		PolygonFactory factory = new DefaultPolygonFactory();
 
@@ -25,16 +25,16 @@ public class Main {
 			polygonInfoOutput();
 			String sideQuantity = br.readLine();
 
-			System.out.println("Input polygon side length (mm):");
+			System.out.println("Input polygon side length (mm) or radius for circle:");
 			String sideLength = br.readLine();
 
 			if(!validator.validateCreate(sideQuantity, sideLength)) {
-				System.out.println("Polygon is not valid: either side quantity or side length is incorrect.");
+				System.out.println("Figure is not valid: either side quantity or side length is incorrect.");
 				System.out.println("Exiting...");
 				return;
 			}
 
-			RegularPolygon polygon = factory.getRegularPolygon
+			RegularFigure polygon = factory.getRegularPolygon
 					(Integer.valueOf(sideQuantity), BigDecimal.valueOf(Double.valueOf(sideLength)));
 
 			polygonResultOutput(polygon);
@@ -47,6 +47,7 @@ public class Main {
 
 	private static void polygonInfoOutput() {
 		System.out.println("Input side quantity:");
+		System.out.println("Circle: 0");
 		System.out.println("Triangle: 3");
 		System.out.println("Square: 4");
 		System.out.println("Pentagon: 5");
@@ -54,10 +55,10 @@ public class Main {
 		System.out.println("--------------");
 	}
 
-	private static void polygonResultOutput(RegularPolygon polygon) {
-		System.out.println("Polygon: " + polygon.getName());
-		System.out.println("Area: " + polygon.getArea(polygon.getSideLength()));
-		System.out.println("Perimeter: " + polygon.getPerimeter(polygon.getSideLength()));
+	private static void polygonResultOutput(RegularFigure polygon) {
+		System.out.println("Figure: " + polygon.getName());
+		System.out.println("Area: " + polygon.getArea());
+		System.out.println("Perimeter: " + polygon.getPerimeter());
 		System.out.println("Exiting.....");
 	}
 }

@@ -1,10 +1,10 @@
 package factory;
 
-import figures.RegularPolygon;
+import figures.RegularFigure;
 
 import java.math.BigDecimal;
 
 public interface PolygonFactory {
 
-	RegularPolygon getRegularPolygon(int sideQuantity, BigDecimal sideLength);
+	RegularFigure getRegularPolygon(int sideQuantity, BigDecimal sideLength);
 }

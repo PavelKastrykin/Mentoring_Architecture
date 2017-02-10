@@ -12,7 +12,7 @@ public class Square extends AbstractRegularPolygon {
 	}
 
 	@Override
-	public BigDecimal getArea(BigDecimal sideLength) {
+	public BigDecimal getArea() {
 		return sideLength.multiply(sideLength);
 	}
 

@@ -17,7 +17,7 @@ public class Triangle extends AbstractRegularPolygon {
 	}
 
 	@Override
-	public BigDecimal getArea(BigDecimal sideLength) {
+	public BigDecimal getArea() {
 		return sideLength
 				.multiply(sideLength)
 				.multiply(BigDecimal.valueOf(Math.sqrt(3)).divide(BigDecimal.valueOf(4), 4));
